@@ -7,7 +7,7 @@
 global_settings {max_trace_level 1}
 
 ///// INCLUDES /////
-#include "../includes/functions.inc"
+#include "../../includes/functions.inc"
 
 ///// CAMERA /////
 camera { 
@@ -30,9 +30,14 @@ camera {
 	#declare thetaDegrees = theta * (180/pi);
 	#declare seq = ( i / n );
 	
+	///// POLYGON /////
+	// This is a basic equasion for rendering 3-12 sided polygons
+	#declare polyS = 3; 				// Polygon Sides
+	#declare polyR = ( pi / 6 );			// Polygon Rotation
+	#declare Polygon = ( cos( pi / polyS )  /  cos(  mod(  max( theta + polyR , polyR ) ,  max( 2 * pi / polyS, polyR )   )  - pi / polyS ) ) ;
+	
 	///// RADIUS /////	
-	#declare radiusDemo = 2 + sin( theta * 8 + pi/2 )/2; // An Example equasion
-	#declare Radius = radiusDemo;
+	#declare Radius = Polygon;
 
 	///// TRANSLATION /////
 	#declare xTranslate = Radius;

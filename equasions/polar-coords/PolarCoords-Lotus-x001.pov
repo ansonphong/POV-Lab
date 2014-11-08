@@ -7,7 +7,7 @@
 global_settings {max_trace_level 1}
 
 ///// INCLUDES /////
-#include "../includes/functions.inc"
+#include "../../includes/functions.inc"
 
 ///// CAMERA /////
 camera { 
@@ -21,7 +21,7 @@ camera {
 ////////// POLAR COORDS : CONFIG //////////
 #declare i = 0;					// Current Iteration 
 #declare c = 1;					// Numer of times to circle
-#declare n = pow( 2, 8 ); 		// Number of Particles
+#declare n = pow( 2, 10 ); 		// Number of Particles
 #declare Diameter = 3/100;		// Sphere Diameter
 
 #while( i < n )
@@ -30,14 +30,19 @@ camera {
 	#declare thetaDegrees = theta * (180/pi);
 	#declare seq = ( i / n );
 	
-	///// POLYGON /////
-	// This is a basic equasion for rendering 3-12 sided polygons
-	#declare polyS = 3; 				// Polygon Sides
-	#declare polyR = ( pi / 6 );			// Polygon Rotation
-	#declare Polygon = ( cos( pi / polyS )  /  cos(  mod(  max( theta + polyR , polyR ) ,  max( 2 * pi / polyS, polyR )   )  - pi / polyS ) ) ;
+	///// LOTUS /////
+	// This is a basic equasion for rendering lotus patterns
+	#declare li = 	2;		// Initial Radius
+	#declare lp = 	6; 		// Petals
+	#declare lm = 	1;		// Multiplier
+	#declare lo = 	1;		// In/Out Curve Ratio 
+	#declare lc = 	3;		// Curvature
+	#declare lg = 	1; 		// Inward Gravity
+	#declare lr = 	pi;		// Rotation
+	#declare Lotus = li +lm*(((abs(cos(theta*(lp/2)+lr/2))*lo)-(abs(cos(theta*(lp/2)+pi/2+lr/2)))*lg)/(2+abs(cos(theta*(lp/2)*2+pi/2+lr))*lc));
 	
 	///// RADIUS /////	
-	#declare Radius = Polygon;
+	#declare Radius = Lotus;
 
 	///// TRANSLATION /////
 	#declare xTranslate = Radius;
