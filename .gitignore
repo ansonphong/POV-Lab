@@ -1,0 +1,10 @@
+##### Image Files #####
+*.png
+*.jpg
+*.tiff
+*.tif
+*.bmp
+*.ppm
+*.hdr
+*.exr
+*.psd
