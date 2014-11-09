@@ -9,7 +9,7 @@ A laboratory of equations, functions, includes, and scene files for rendering ar
 ## Equations
 `/equations` contains various POV scene files, organized by method. Methods can include anything from matrix rigs, such as Polar Coordinates, to particular equations within that context which produce custom shapes.
 
-#### Polar Coordinates
+#### `polar-coords` : Polar Coordinates
 A configuration for rendering equations with polar coordinates.
 
 ## Users
