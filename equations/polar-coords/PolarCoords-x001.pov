@@ -1,5 +1,5 @@
 ////////// POLAR COORDINATES : PARTICLE MATRICES CONFIG ////////////
-// This is a general use configuration setup for rendering 2D polar coordinates equasions
+// This is a general use configuration setup for rendering 2D polar coordinates equations
 // Available functions official : http://www.povray.org/documentation/3.7.0/r3_3.html#r3_3_1_5_4
 // Available functions unofficial : http://www.f-lohmueller.de/pov_tut/calc/math_600e.htm
 
@@ -10,7 +10,7 @@ global_settings {max_trace_level 1}
 #include "../../includes/functions.inc"
 
 ///// CAMERA /////
-camera { 
+camera {
 	orthographic 		// Available options : perspective, orthographic
 	right x * 1			// Aspect Ratio
 	angle 90			// Lens
@@ -19,7 +19,7 @@ camera {
 	look_at <0,0,0>
 }
 ////////// POLAR COORDS : CONFIG //////////
-#declare i = 0;					// Current Iteration 
+#declare i = 0;					// Current Iteration
 #declare c = 1;					// Numer of times to circle
 #declare n = pow( 2, 8 ); 		// Number of Particles
 #declare Diameter = 3/100;		// Sphere Diameter
@@ -29,8 +29,8 @@ camera {
 	#declare theta = ( i / n ) * c * pi * 2;
 	#declare thetaDegrees = theta * (180/pi);
 	#declare seq = ( i / n );
-	
-	///// RADIUS /////	
+
+	///// RADIUS /////
 	#declare radiusDemo = 2 + sin( theta * 8 + pi/2 )/2; // An Example equasion
 	#declare Radius = radiusDemo;
 
@@ -38,7 +38,7 @@ camera {
 	#declare xTranslate = Radius;
 	#declare yTranslate = 0;
 	#declare zTranslate = 0;
-	
+
 	///// ROTATION /////
 	#declare xRotate = 0;
 	#declare yRotate = 0;
@@ -56,9 +56,7 @@ camera {
 		}
 		finish{
 			ambient rgb <1,1,1>
-		} 
+		}
 	}
-	
+
 #end
-
-
