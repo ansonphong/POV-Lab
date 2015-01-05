@@ -8,3 +8,6 @@
 *.hdr
 *.exr
 *.psd
+
+##### POV-Ray Files #####
+*.pov-state
