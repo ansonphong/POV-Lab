@@ -1,6 +1,7 @@
 ////////// EQUIRECTANGULAR : CAMERA CONFIG ////////////
 // This is a general use configuration setup for creating equirectangular renderings
 // Which can be viewed in 360 panorama viewers and VR headsets
+// Rendered image dimensions are 2:1 ratio, ie. 2048x1024
 
 ///// CONFIG /////
 global_settings {
